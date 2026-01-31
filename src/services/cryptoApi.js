@@ -40,7 +40,8 @@ export const getCoinDetails = async (coinId) => {
         localization: false,
         tickers: false,
         community_data: false,
-        developer_data: false
+        developer_data: false,
+        sparkline: true
       }
     })
     return response.data
@@ -49,3 +50,4 @@ export const getCoinDetails = async (coinId) => {
     throw error
   }
 }
+

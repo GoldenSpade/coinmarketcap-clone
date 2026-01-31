@@ -63,6 +63,13 @@
           </div>
         </div>
 
+        <!-- Price Chart -->
+        <PriceChart
+          v-if="coin.market_data?.sparkline_7d?.price"
+          :sparklineData="coin.market_data.sparkline_7d.price"
+          :priceChange="coin.market_data.price_change_percentage_7d_in_currency?.usd || 0"
+        />
+
         <!-- Stats Grid -->
         <div class="stats-grid">
           <div class="stat-card">
@@ -177,6 +184,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getCoinDetails } from '@/services/cryptoApi'
+import PriceChart from '@/components/PriceChart.vue'
 
 const route = useRoute()
 const router = useRouter()
