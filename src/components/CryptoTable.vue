@@ -89,6 +89,11 @@
                 </span>
               </div>
             </th>
+            <th>
+              <div class="th-content">
+                <span>Last 7 Days</span>
+              </div>
+            </th>
             <th class="sortable" @click="handleSort('market_cap')">
               <div class="th-content">
                 <span>Market Cap</span>
@@ -134,6 +139,13 @@
             <td :class="getPriceChangeClass(coin.price_change_percentage_7d_in_currency)">
               {{ formatPercentage(coin.price_change_percentage_7d_in_currency) }}%
             </td>
+            <td class="sparkline-cell">
+              <Sparkline
+                v-if="coin.sparkline_in_7d?.price"
+                :data="coin.sparkline_in_7d.price"
+                :priceChange="coin.price_change_percentage_7d_in_currency"
+              />
+            </td>
             <td>${{ formatLargeNumber(coin.market_cap) }}</td>
             <td>${{ formatLargeNumber(coin.total_volume) }}</td>
           </tr>
@@ -146,6 +158,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { getCryptoData } from '@/services/cryptoApi'
+import Sparkline from './Sparkline.vue'
 
 const props = defineProps({
   searchQuery: {
@@ -438,6 +451,10 @@ tbody tr:last-child td:last-child {
   font-weight: 600;
 }
 
+.sparkline-cell {
+  text-align: center;
+}
+
 .no-results {
   text-align: center;
   padding: 3rem 1.5rem;
@@ -470,7 +487,7 @@ tbody tr:last-child td:last-child {
   }
 
   table {
-    min-width: 800px;
+    min-width: 950px;
   }
 
   th {
@@ -534,7 +551,7 @@ tbody tr:last-child td:last-child {
 
 @media (max-width: 480px) {
   table {
-    min-width: 700px;
+    min-width: 850px;
   }
 
   th {

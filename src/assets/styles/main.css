@@ -96,15 +96,3 @@ ul {
     padding: 0 16px;
   }
 }
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 12px;
-  }
-}
-
-@media (max-width: 375px) {
-  .container {
-    padding: 0 10px;
-  }
-}

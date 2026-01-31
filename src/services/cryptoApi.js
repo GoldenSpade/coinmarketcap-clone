@@ -16,7 +16,7 @@ export const getCryptoData = async (params = {}) => {
     order: 'market_cap_desc',
     per_page: 100,
     page: 1,
-    sparkline: false,
+    sparkline: true,
     price_change_percentage: '24h,7d'
   }
 
