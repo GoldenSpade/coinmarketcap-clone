@@ -69,7 +69,8 @@ defineEmits(['update:modelValue'])
 .search-input:focus {
   outline: none;
   border-color: var(--accent-blue);
-  box-shadow: 0 0 0 3px rgba(56, 97, 251, 0.1);
+  box-shadow: 0 0 0 3px rgba(56, 97, 251, 0.15);
+  background-color: var(--bg-tertiary);
 }
 
 .search-input::placeholder {

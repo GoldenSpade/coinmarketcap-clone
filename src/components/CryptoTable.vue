@@ -353,6 +353,7 @@ tbody tr {
 
 tbody tr:hover {
   background-color: var(--bg-hover);
+  transform: scale(1.001);
 }
 
 td {
@@ -388,6 +389,15 @@ td {
 }
 
 .price {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.positive {
+  font-weight: 600;
+}
+
+.negative {
   font-weight: 600;
 }
 

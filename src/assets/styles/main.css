@@ -1,28 +1,35 @@
 :root {
-  --bg-primary: #0b0e11;
-  --bg-secondary: #171a1e;
-  --bg-tertiary: #1e2329;
-  --bg-hover: #2b3139;
+  /* Backgrounds - darker and more vibrant like CoinMarketCap */
+  --bg-primary: #0a0e27;
+  --bg-secondary: #16182e;
+  --bg-tertiary: #1e2130;
+  --bg-hover: #23253a;
 
-  --text-primary: #f0f0f0;
-  --text-secondary: #b7bdc6;
-  --text-tertiary: #848e9c;
+  /* Text colors - higher contrast */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0aa;
+  --text-tertiary: #6c6c7a;
 
-  --accent-green: #03a66d;
-  --accent-red: #cf304a;
+  /* Accent colors - vibrant like CoinMarketCap */
+  --accent-green: #16c784;
+  --accent-red: #ea3943;
   --accent-blue: #3861fb;
 
-  --border-color: #2b3139;
-  --border-hover: #3b4149;
+  /* Border colors */
+  --border-color: #23253a;
+  --border-hover: #2d2f42;
 
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
 
+  /* Border radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
+  /* Transitions */
   --transition: all 0.2s ease;
 }
 
