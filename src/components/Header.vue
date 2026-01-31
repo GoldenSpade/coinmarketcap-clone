@@ -17,10 +17,6 @@
 .header {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
 }
 
 .header-content {

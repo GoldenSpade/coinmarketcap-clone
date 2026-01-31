@@ -260,14 +260,15 @@ onMounted(() => {
 .crypto-table {
   background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 0;
   box-shadow: var(--shadow-md);
+  overflow: visible;
 }
 
 .loading,
 .error {
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem 1.5rem;
 }
 
 .spinner {
@@ -301,10 +302,6 @@ onMounted(() => {
   opacity: 0.9;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -315,13 +312,26 @@ thead {
 }
 
 th {
+  position: sticky;
+  top: 0;
   text-align: left;
-  padding: 1rem 0.75rem;
+  padding: 1.5rem 0.75rem 1rem;
   color: var(--text-secondary);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  background-color: var(--bg-secondary);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+th:first-child {
+  padding-left: 1.5rem;
+}
+
+th:last-child {
+  padding-right: 1.5rem;
 }
 
 th.sortable {
@@ -359,6 +369,14 @@ tbody tr:hover {
 td {
   padding: 1rem 0.75rem;
   font-size: 0.95rem;
+}
+
+td:first-child {
+  padding-left: 1.5rem;
+}
+
+td:last-child {
+  padding-right: 1.5rem;
 }
 
 .coin-info {
@@ -409,7 +427,7 @@ td {
 
 .no-results {
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem 1.5rem;
 }
 
 .no-results-icon {
