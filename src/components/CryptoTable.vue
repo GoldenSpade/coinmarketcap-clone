@@ -265,6 +265,11 @@ onMounted(() => {
   overflow: visible;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .loading,
 .error {
   text-align: center;
@@ -433,12 +438,6 @@ tbody tr:last-child td:last-child {
   font-weight: 600;
 }
 
-@media (max-width: 1024px) {
-  table {
-    min-width: 900px;
-  }
-}
-
 .no-results {
   text-align: center;
   padding: 3rem 1.5rem;
@@ -463,13 +462,127 @@ tbody tr:last-child td:last-child {
 
 @media (max-width: 768px) {
   .crypto-table {
-    padding: 1rem;
+    border-radius: var(--radius-md);
   }
 
-  th,
+  .table-wrapper {
+    border-radius: var(--radius-md);
+  }
+
+  table {
+    min-width: 800px;
+  }
+
+  th {
+    padding: 1rem 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  th:first-child {
+    padding-left: 1rem;
+  }
+
+  th:last-child {
+    padding-right: 1rem;
+  }
+
   td {
     padding: 0.75rem 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
+  }
+
+  td:first-child {
+    padding-left: 1rem;
+  }
+
+  td:last-child {
+    padding-right: 1rem;
+  }
+
+  .coin-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .coin-name {
+    gap: 0.25rem;
+  }
+
+  .name {
+    font-size: 0.875rem;
+  }
+
+  .symbol {
+    font-size: 0.75rem;
+  }
+
+  .loading,
+  .error,
+  .no-results {
+    padding: 2rem 1rem;
+  }
+
+  .no-results-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    min-width: 700px;
+  }
+
+  th {
+    padding: 0.875rem 0.4rem 0.625rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+  }
+
+  th:first-child {
+    padding-left: 0.75rem;
+  }
+
+  th:last-child {
+    padding-right: 0.75rem;
+  }
+
+  td {
+    padding: 0.625rem 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  td:first-child {
+    padding-left: 0.75rem;
+  }
+
+  td:last-child {
+    padding-right: 0.75rem;
+  }
+
+  .coin-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .coin-info {
+    gap: 0.5rem;
+  }
+
+  .name {
+    font-size: 0.8rem;
+  }
+
+  .symbol {
+    font-size: 0.7rem;
+  }
+
+  .price {
+    font-size: 0.875rem;
   }
 }
 </style>

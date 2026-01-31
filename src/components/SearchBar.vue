@@ -96,8 +96,49 @@ defineEmits(['update:modelValue'])
 }
 
 @media (max-width: 768px) {
+  .search-bar {
+    margin-bottom: 1.25rem;
+  }
+
   .search-input-wrapper {
     max-width: 100%;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+  }
+
+  .search-icon {
+    left: 0.875rem;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem 0.625rem 2.5rem;
+  }
+
+  .search-icon {
+    left: 0.75rem;
+    width: 16px;
+    height: 16px;
+  }
+
+  .clear-btn {
+    right: 0.5rem;
+  }
+
+  .clear-btn svg {
+    width: 14px;
+    height: 14px;
   }
 }
 </style>

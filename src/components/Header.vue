@@ -50,4 +50,36 @@
 .nav-link.router-link-active {
   color: var(--text-primary);
 }
+
+@media (max-width: 768px) {
+  .header-content {
+    height: 56px;
+  }
+
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    height: 52px;
+  }
+
+  .logo h1 {
+    font-size: 1.125rem;
+  }
+
+  .nav {
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+}
 </style>

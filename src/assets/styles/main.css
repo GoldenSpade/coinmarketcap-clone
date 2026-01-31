@@ -1,6 +1,6 @@
 :root {
   /* Backgrounds - darker and more vibrant like CoinMarketCap */
-  --bg-primary: #0a0e27;
+  --bg-primary: #0d1421;
   --bg-secondary: #16182e;
   --bg-tertiary: #1e2130;
   --bg-hover: #23253a;
@@ -94,5 +94,17 @@ ul {
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 10px;
   }
 }

@@ -42,8 +42,38 @@ const searchQuery = ref('')
 }
 
 @media (max-width: 768px) {
+  .home {
+    padding: 1.5rem 0;
+  }
+
+  .header-section {
+    margin-bottom: 1.5rem;
+  }
+
   .page-title {
     font-size: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 1rem 0;
+  }
+
+  .header-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
   }
 }
 </style>
