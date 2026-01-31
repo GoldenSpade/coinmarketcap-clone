@@ -123,7 +123,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="coin in filteredCryptoData" :key="coin.id" class="coin-row">
+          <tr v-for="coin in filteredCryptoData" :key="coin.id" class="coin-row" @click="navigateToCoin(coin.id)">
             <td>{{ coin.market_cap_rank }}</td>
             <td class="coin-info">
               <img :src="coin.image" :alt="coin.name" class="coin-logo">
@@ -157,8 +157,11 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { getCryptoData } from '@/services/cryptoApi'
 import Sparkline from './Sparkline.vue'
+
+const router = useRouter()
 
 const props = defineProps({
   searchQuery: {
@@ -262,6 +265,10 @@ const formatLargeNumber = (num) => {
 const getPriceChangeClass = (change) => {
   if (!change) return ''
   return change >= 0 ? 'positive' : 'negative'
+}
+
+const navigateToCoin = (coinId) => {
+  router.push(`/coin/${coinId}`)
 }
 
 onMounted(() => {
@@ -379,6 +386,7 @@ th.sortable:hover {
 tbody tr {
   border-bottom: 1px solid var(--border-color);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 tbody tr:last-child {
