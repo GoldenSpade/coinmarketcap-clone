@@ -4,11 +4,13 @@
     <main>
       <RouterView />
     </main>
+    <ScrollToTop />
   </div>
 </template>
 
 <script setup>
 import Header from '@/components/Header.vue'
+import ScrollToTop from '@/components/ScrollToTop.vue'
 </script>
 
 <style scoped>

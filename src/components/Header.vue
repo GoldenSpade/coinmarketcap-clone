@@ -3,7 +3,9 @@
     <div class="container">
       <div class="header-content">
         <div class="logo">
-          <h1>CryptoTracker</h1>
+          <RouterLink to="/">
+            <h1>CryptoTracker</h1>
+          </RouterLink>
         </div>
         <nav class="nav">
           <RouterLink to="/" class="nav-link">Markets</RouterLink>
