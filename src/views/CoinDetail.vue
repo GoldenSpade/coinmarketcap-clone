@@ -31,6 +31,16 @@
           </div>
         </div>
 
+        <!-- Categories -->
+        <div v-if="coin.categories && coin.categories.length > 0" class="categories-section">
+          <h3 class="section-title">Categories</h3>
+          <div class="categories-tags">
+            <div class="category-tag" v-for="category in coin.categories.slice(0, 6)" :key="category">
+              {{ category }}
+            </div>
+          </div>
+        </div>
+
         <!-- Price Section -->
         <div class="price-section">
           <div class="current-price">
@@ -45,6 +55,9 @@
               </span>
               <span :class="getPriceChangeClass(coin.market_data.price_change_percentage_30d)" class="change-badge">
                 {{ formatPercentage(coin.market_data.price_change_percentage_30d) }}% (30d)
+              </span>
+              <span v-if="coin.market_data.price_change_percentage_1y" :class="getPriceChangeClass(coin.market_data.price_change_percentage_1y)" class="change-badge">
+                {{ formatPercentage(coin.market_data.price_change_percentage_1y) }}% (1y)
               </span>
             </div>
           </div>
@@ -81,6 +94,41 @@
             <span class="stat-label">All-Time Low</span>
             <span class="stat-value">${{ formatPrice(coin.market_data.atl.usd) }}</span>
             <span class="stat-date">{{ formatDate(coin.market_data.atl_date.usd) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.market_data.high_24h">
+            <span class="stat-label">24h High</span>
+            <span class="stat-value">${{ formatPrice(coin.market_data.high_24h.usd) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.market_data.low_24h">
+            <span class="stat-label">24h Low</span>
+            <span class="stat-value">${{ formatPrice(coin.market_data.low_24h.usd) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.market_data.fully_diluted_valuation">
+            <span class="stat-label">Fully Diluted Valuation</span>
+            <span class="stat-value">${{ formatLargeNumber(coin.market_data.fully_diluted_valuation.usd) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.genesis_date">
+            <span class="stat-label">Genesis Date</span>
+            <span class="stat-value">{{ formatDate(coin.genesis_date) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.hashing_algorithm">
+            <span class="stat-label">Hashing Algorithm</span>
+            <span class="stat-value">{{ coin.hashing_algorithm }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.watchlist_portfolio_users">
+            <span class="stat-label">Watchlist Users</span>
+            <span class="stat-value">{{ formatLargeNumber(coin.watchlist_portfolio_users) }}</span>
+          </div>
+          <div class="stat-card" v-if="coin.sentiment_votes_up_percentage !== undefined">
+            <span class="stat-label">Community Sentiment</span>
+            <div class="sentiment-bar">
+              <div class="sentiment-positive" :style="{ width: coin.sentiment_votes_up_percentage + '%' }">
+                <span class="sentiment-label">{{ coin.sentiment_votes_up_percentage.toFixed(0) }}%</span>
+              </div>
+              <div class="sentiment-negative" :style="{ width: coin.sentiment_votes_down_percentage + '%' }">
+                <span class="sentiment-label">{{ coin.sentiment_votes_down_percentage.toFixed(0) }}%</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -327,6 +375,42 @@ onMounted(() => {
   font-weight: 600;
 }
 
+.categories-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.categories-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-tag {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.category-tag:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
 .price-section {
   background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
@@ -403,6 +487,37 @@ onMounted(() => {
   color: var(--text-tertiary);
   font-size: 0.8rem;
   margin-top: 0.25rem;
+}
+
+.sentiment-bar {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.sentiment-positive,
+.sentiment-negative {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.sentiment-positive {
+  background-color: var(--accent-green);
+}
+
+.sentiment-negative {
+  background-color: var(--accent-red);
+}
+
+.sentiment-label {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .description-section {
@@ -491,6 +606,11 @@ onMounted(() => {
   .links-section {
     padding: 1.5rem;
   }
+
+  .category-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.875rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -511,6 +631,28 @@ onMounted(() => {
   .description-section,
   .links-section {
     padding: 1.25rem;
+  }
+
+  .category-tag {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .price-changes {
+    gap: 0.5rem;
+  }
+
+  .change-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.875rem;
+  }
+
+  .sentiment-bar {
+    height: 35px;
+  }
+
+  .sentiment-label {
+    font-size: 0.8rem;
   }
 }
 </style>
