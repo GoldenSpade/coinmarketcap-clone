@@ -285,11 +285,6 @@ onMounted(() => {
   overflow: visible;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 .loading,
 .error {
   text-align: center;
@@ -485,6 +480,17 @@ tbody tr:last-child td:last-child {
   font-size: 0.9rem;
 }
 
+@media (max-width: 1024px) {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 950px;
+  }
+}
+
 @media (max-width: 768px) {
   .crypto-table {
     border-radius: var(--radius-md);
@@ -492,6 +498,8 @@ tbody tr:last-child td:last-child {
 
   .table-wrapper {
     border-radius: var(--radius-md);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   table {
