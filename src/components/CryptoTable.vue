@@ -328,10 +328,12 @@ th {
 
 th:first-child {
   padding-left: 1.5rem;
+  border-top-left-radius: var(--radius-lg);
 }
 
 th:last-child {
   padding-right: 1.5rem;
+  border-top-right-radius: var(--radius-lg);
 }
 
 th.sortable {
@@ -361,6 +363,10 @@ tbody tr {
   transition: var(--transition);
 }
 
+tbody tr:last-child {
+  border-bottom: none;
+}
+
 tbody tr:hover {
   background-color: var(--bg-hover);
   transform: scale(1.001);
@@ -377,6 +383,14 @@ td:first-child {
 
 td:last-child {
   padding-right: 1.5rem;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-lg);
 }
 
 .coin-info {
