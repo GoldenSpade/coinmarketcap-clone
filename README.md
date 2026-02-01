@@ -6,6 +6,28 @@ A modern cryptocurrency tracker web application built with Vue.js 3 using Compos
 ![Vite](https://img.shields.io/badge/Vite-Latest-646CFF)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
+## 🚀 Live Demo
+
+**[View Live Demo →](https://goldenspade.github.io/coinmarketcap-clone)**
+
+## 📸 Screenshots
+
+<div align="center">
+
+### Main Page - Cryptocurrency Table
+![Main Page](https://goldenspade.github.io/coinmarketcap-clone/screenshots/img-1.jpg)
+
+### Coin Details Page - Price Chart & Statistics
+![Coin Details](https://goldenspade.github.io/coinmarketcap-clone/screenshots/img-2.jpg)
+
+### Live Header Statistics
+![Header Stats](https://goldenspade.github.io/coinmarketcap-clone/screenshots/img-3.jpg)
+
+### Search & Filtering
+![Search](https://goldenspade.github.io/coinmarketcap-clone/screenshots/img-4.jpg)
+
+</div>
+
 ## Features
 
 ### Core Functionality
