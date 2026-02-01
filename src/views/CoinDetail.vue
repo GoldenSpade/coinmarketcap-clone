@@ -129,11 +129,11 @@
           <div class="stat-card" v-if="coin.sentiment_votes_up_percentage !== undefined">
             <span class="stat-label">Community Sentiment</span>
             <div class="sentiment-bar">
-              <div class="sentiment-positive" :style="{ width: coin.sentiment_votes_up_percentage + '%' }">
-                <span class="sentiment-label">{{ coin.sentiment_votes_up_percentage.toFixed(0) }}%</span>
+              <div class="sentiment-positive" :style="{ width: (coin.sentiment_votes_up_percentage || 0) + '%' }">
+                <span class="sentiment-label">{{ (coin.sentiment_votes_up_percentage || 0).toFixed(0) }}%</span>
               </div>
-              <div class="sentiment-negative" :style="{ width: coin.sentiment_votes_down_percentage + '%' }">
-                <span class="sentiment-label">{{ coin.sentiment_votes_down_percentage.toFixed(0) }}%</span>
+              <div class="sentiment-negative" :style="{ width: (coin.sentiment_votes_down_percentage || 0) + '%' }">
+                <span class="sentiment-label">{{ (coin.sentiment_votes_down_percentage || 0).toFixed(0) }}%</span>
               </div>
             </div>
           </div>

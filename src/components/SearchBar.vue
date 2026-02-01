@@ -2,7 +2,13 @@
   <div class="search-bar">
     <div class="search-input-wrapper">
       <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18.5 18.5l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path
+          d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18.5 18.5l-4-4"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
       <input
         type="text"
@@ -18,7 +24,12 @@
         aria-label="Clear search"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path
+            d="M12 4L4 12M4 4l8 8"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
         </svg>
       </button>
     </div>
@@ -29,8 +40,8 @@
 defineProps({
   modelValue: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 defineEmits(['update:modelValue'])
@@ -39,6 +50,13 @@ defineEmits(['update:modelValue'])
 <style scoped>
 .search-bar {
   margin-bottom: 1.5rem;
+  min-width: 320px;
+}
+
+@media (max-width: 640px) {
+  .search-bar {
+    min-width: 80%;
+  }
 }
 
 .search-input-wrapper {

@@ -1,12 +1,14 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="header-section">
-        <h2 class="page-title">Cryptocurrency Market</h2>
-        <p class="page-subtitle">Track cryptocurrency prices in real-time</p>
-      </div>
+      <div class="header-wrap">
+        <div class="header-section">
+          <h2 class="page-title">Cryptocurrency Market</h2>
+          <p class="page-subtitle">Track cryptocurrency prices in real-time</p>
+        </div>
 
-      <SearchBar v-model="searchQuery" />
+        <SearchBar v-model="searchQuery" />
+      </div>
 
       <CryptoTable :search-query="searchQuery" />
     </div>
@@ -24,6 +26,19 @@ const searchQuery = ref('')
 <style scoped>
 .home {
   padding: 2rem 0;
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .header-wrap {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .header-section {
