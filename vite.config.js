@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     plugins,
-    // base: '/github-repo-name/',
+    base: '/coinmarketcap-clone/',
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
