@@ -17,8 +17,16 @@ A modern cryptocurrency tracker web application built with Vue.js 3 using Compos
 - ✅ Search cryptocurrencies by name or symbol
 - ✅ Sortable table columns (rank, name, price, changes, market cap, volume)
 
+### Live Header Statistics
+- ✅ Real-time display of top 3 cryptocurrencies in header
+- ✅ Quick access to BTC, ETH, and #3 coin prices
+- ✅ 24h price change indicators with color coding
+- ✅ Clickable cards for instant navigation to coin details
+- ✅ Responsive design (shows 3 coins on desktop, 2 on tablet, 1 on mobile)
+
 ### Detailed Coin Pages
 - ✅ Comprehensive coin information
+- ✅ Interactive 7-day price chart with Chart.js
 - ✅ Categories and tags
 - ✅ All-time high/low with dates
 - ✅ 24h high/low prices
@@ -28,6 +36,7 @@ A modern cryptocurrency tracker web application built with Vue.js 3 using Compos
 - ✅ Community sentiment visualization
 - ✅ Watchlist statistics
 - ✅ Coin description and links
+- ✅ Automatic data refresh when navigating between coins
 
 ### UI/UX
 - ✅ Dark theme inspired by CoinMarketCap
@@ -36,6 +45,13 @@ A modern cryptocurrency tracker web application built with Vue.js 3 using Compos
 - ✅ Clean and modern interface
 - ✅ Hover effects and transitions
 - ✅ Visual price change indicators (green/red)
+- ✅ Interactive elements with cursor feedback
+
+### Performance Optimizations
+- ✅ Optimized API requests (sparkline data included in main requests)
+- ✅ Reduced API calls to prevent rate limiting
+- ✅ Efficient data loading and caching
+- ✅ Smart component re-rendering with Vue watchers
 
 ## Tech Stack
 
@@ -55,10 +71,11 @@ coinmarketcap-clone/
 │   │   └── styles/
 │   │       └── main.css              # Global styles and CSS variables
 │   ├── components/
-│   │   ├── Header.vue                # Site header
+│   │   ├── Header.vue                # Site header with live top 3 crypto stats
 │   │   ├── CryptoTable.vue           # Main cryptocurrency table
 │   │   ├── SearchBar.vue             # Search input component
-│   │   ├── Sparkline.vue             # Price chart component
+│   │   ├── Sparkline.vue             # 7-day mini chart for table rows
+│   │   ├── PriceChart.vue            # Interactive price chart for detail pages
 │   │   └── ScrollToTop.vue           # Scroll-to-top button
 │   ├── services/
 │   │   └── cryptoApi.js              # CoinGecko API service
@@ -140,10 +157,18 @@ This project uses the free [CoinGecko API](https://www.coingecko.com/en/api) to 
 - Public endpoints only
 
 **Endpoints Used:**
-- `/coins/markets` - List of cryptocurrencies with market data
-- `/coins/{id}` - Detailed information about specific cryptocurrency
+- `/coins/markets` - List of cryptocurrencies with market data (includes sparkline data for charts)
+- `/coins/{id}` - Detailed information about specific cryptocurrency (includes 7-day sparkline for price chart)
 
 ## Features Breakdown
+
+### Live Header
+- Displays real-time data for top 3 cryptocurrencies
+- Compact cards showing coin icon, symbol, price, and 24h change
+- Click any card to navigate to detailed coin page
+- Responsive design adapts to screen size
+- Smooth hover effects and transitions
+- Independent API request optimized for minimal data usage
 
 ### Search
 - Real-time search filtering
@@ -158,12 +183,20 @@ This project uses the free [CoinGecko API](https://www.coingecko.com/en/api) to 
 - Default sort by market cap rank
 
 ### Sparkline Charts
-- 7-day price trend visualization
+- 7-day price trend visualization in table rows
 - Color-coded (green for gains, red for losses)
 - Smooth line rendering with Chart.js
 - Responsive sizing
 
+### Price Charts
+- Interactive 7-day price chart on coin detail pages
+- Full-size Chart.js visualization
+- Color-coded based on price performance
+- Uses optimized sparkline data from main API request
+- Smooth gradient fills
+
 ### Coin Details Page
+- Interactive 7-day price chart
 - Comprehensive statistics grid
 - Price change badges for multiple time periods
 - Interactive category tags
@@ -171,6 +204,7 @@ This project uses the free [CoinGecko API](https://www.coingecko.com/en/api) to 
 - External links (website, explorer, GitHub, Twitter)
 - Back to home navigation
 - Automatic scroll to top on page load
+- Smart data reloading when navigating between coins
 
 ### Responsive Design
 - **Desktop** (>1024px): Full layout with all features
@@ -194,6 +228,24 @@ The application uses a dark theme inspired by CoinMarketCap:
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
+
+## Key Technical Improvements
+
+### API Optimization
+- Sparkline data is fetched once with the main cryptocurrency data, eliminating redundant API calls
+- Header component makes a single lightweight request for top 3 coins
+- Prevents CoinGecko API rate limiting issues
+
+### Navigation & State Management
+- Vue Router watchers ensure data refreshes when navigating between coin detail pages
+- Seamless navigation from header cards, table rows, and detail pages
+- Maintains scroll position and loading states
+
+### Code Quality
+- All code comments and documentation in English
+- Clean component structure following Vue 3 Composition API best practices
+- Consistent naming conventions and file organization
+- Optimized CSS with custom properties for theming
 
 ## License
 
