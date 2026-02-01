@@ -181,7 +181,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getCoinDetails } from '@/services/cryptoApi'
 import PriceChart from '@/components/PriceChart.vue'
@@ -270,6 +270,13 @@ const sanitizeDescription = (html) => {
 
 onMounted(() => {
   fetchCoinDetails()
+})
+
+// Watch for route parameter changes to reload data when navigating between coins
+watch(() => route.params.id, (newId, oldId) => {
+  if (newId && newId !== oldId) {
+    fetchCoinDetails()
+  }
 })
 </script>
 
